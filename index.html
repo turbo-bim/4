@@ -1,20 +1,601 @@
-<!-- ... existing code ... -->
-      // Full Menu Dataset
-      const menuData = [
-        // Doner
-        { id: 1, cat: "doner", name_kk: "Донер классический (Үлкен)", name_ru: "Донер классический (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 2, cat: "doner", name_kk: "Донер классический (Кіші)", name_ru: "Донер классический (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 3, cat: "doner", name_kk: "Донер сырный (Үлкен)", name_ru: "Донер сырный (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 4, cat: "doner", name_kk: "Донер сырный (Кіші)", name_ru: "Донер сырный (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 5, cat: "doner", name_kk: "Донер фирменный (Үлкен)", name_ru: "Донер фирменный (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 6, cat: "doner", name_kk: "Донер фирменный (Кіші)", name_ru: "Донер фирменный (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 7, cat: "doner", name_kk: "Донер говяжий (Үлкен)", name_ru: "Донер говяжий (Большой)", price: 2000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 8, cat: "doner", name_kk: "Донер говяжий (Кіші)", name_ru: "Донер говяжий (Маленький)", price: 1200, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 9, cat: "doner", name_kk: "Донер жареный (Үлкен)", name_ru: "Донер жареный (Большой)", price: 1800, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 10, cat: "doner", name_kk: "Донер жареный (Кіші)", name_ru: "Донер жареный (Маленький)", price: 1200, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 11, cat: "doner", name_kk: "Батон донер (Үлкен)", name_ru: "Батон донер (Большой)", price: 1900, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 12, cat: "doner", name_kk: "Батон донер (Кіші)", name_ru: "Батон донер (Маленький)", price: 900, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
-        { id: 13, cat: "doner", name_kk: "Твистер", name_ru: "Твистер", price: 1800, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&auto=format&fit=crop&q=80" },
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uide Fast Food - Меню</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-        // Burgers & Wings
-<!-- ... existing code ... -->
+    body {
+      background-color: #0f0f11;
+      color: #fff;
+      padding-bottom: 40px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a1a1e;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid #ff5722;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff5722;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .lang-btn {
+      background: #2a2a2e;
+      color: #fff;
+      border: 1px solid #ff5722;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-btn {
+      position: relative;
+      font-size: 22px;
+      cursor: pointer;
+      color: #ff5722;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #ff5722;
+      color: #fff;
+      font-size: 11px;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-weight: bold;
+    }
+
+    .info-bar {
+      background-color: #25252b;
+      padding: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: space-around;
+      font-size: 13px;
+      color: #ccc;
+      border-bottom: 1px solid #333;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .info-item i {
+      color: #ff5722;
+    }
+
+    .info-item a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      padding: 15px 20px;
+      overflow-x: auto;
+      background-color: #141417;
+    }
+
+    .cat-btn {
+      background: #25252b;
+      border: none;
+      color: #aaa;
+      padding: 8px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .cat-btn.active, .cat-btn:hover {
+      background: #ff5722;
+      color: #fff;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #1a1a1e;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #2a2a2e;
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 12px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-price {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff5722;
+    }
+
+    .add-btn {
+      background: #ff5722;
+      border: none;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-btn:hover {
+      background: #e04818;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #1a1a1e;
+      width: 90%;
+      max-width: 450px;
+      border-radius: 12px;
+      padding: 20px;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    .close-btn {
+      font-size: 24px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .cart-items {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin: 15px 0;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      background: #25252b;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      background: #ff5722;
+      border: none;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #333;
+      padding-top: 15px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .order-btn {
+      width: 100%;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header class="header">
+    <div class="logo">
+      <i class="fa-solid fa-fire"></i> Uide Fast Food
+    </div>
+    <div class="header-right">
+      <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">
+        <i class="fa-solid fa-globe"></i> <span id="lang-label">RU</span>
+      </button>
+      <div class="cart-btn" onclick="openCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Ақпараттық блок -->
+  <section class="info-bar">
+    <div class="info-item">
+      <i class="fa-solid fa-truck-fast"></i>
+      <span id="delivery-text">Жеткізу бар / Доставка есть</span>
+    </div>
+    <div class="info-item">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Қарауыл ауылы, Ералы көшесі 22 Б</span>
+    </div>
+    <div class="info-item">
+      <i class="fa-solid fa-phone"></i>
+      <a href="tel:+77002302331">+7 700 230 23 31</a>
+    </div>
+  </section>
+
+  <!-- Категориялар -->
+  <nav class="categories" id="categories"></nav>
+
+  <!-- Меню карточкалары -->
+  <main class="menu-grid" id="menu-grid"></main>
+
+  <!-- Себет Модальді терезесі -->
+  <div class="modal" id="cart-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="cart-title">Себет</h2>
+        <span class="close-btn" onclick="closeCart()">&times;</span>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="total-row">
+          <span id="total-text">Жалпы сомасы:</span>
+          <strong id="total-amount">0 ₸</strong>
+        </div>
+        <button class="order-btn" onclick="sendOrder()">
+          <i class="fa-brands fa-whatsapp"></i> <span id="order-btn-text">WhatsApp арқылы тапсырыс беру</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentLang = 'kk';
+
+    const translations = {
+      kk: {
+        delivery: "Жеткізу бар",
+        cartTitle: "Тапсырыс себеті",
+        total: "Жалпы сомасы:",
+        orderBtn: "WhatsApp арқылы тапсырыс беру",
+        emptyCart: "Себетіңіз бос!",
+        add: "Қосу",
+        all: "Барлығы"
+      },
+      ru: {
+        delivery: "Есть доставка",
+        cartTitle: "Корзина заказов",
+        total: "Итоговая сумма:",
+        orderBtn: "Заказать через WhatsApp",
+        emptyCart: "Корзина пуста!",
+        add: "Добавить",
+        all: "Все"
+      }
+    };
+
+    const menuData = [
+      // Донерлер[cite: 3]
+      { cat: "doner", name_kk: "Донер классический (Үлкен)", name_ru: "Донер классический (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер классический (Кіші)", name_ru: "Донер классический (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер сырный (Үлкен)", name_ru: "Донер сырный (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер сырный (Кіші)", name_ru: "Донер сырный (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер фирменный (Үлкен)", name_ru: "Донер фирменный (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер фирменный (Кіші)", name_ru: "Донер фирменный (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер говяжий (Үлкен)", name_ru: "Донер говяжий (Большой)", price: 2000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер говяжий (Кіші)", name_ru: "Донер говяжий (Маленький)", price: 1200, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер жареный (Үлкен)", name_ru: "Донер жареный (Большой)", price: 1800, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Донер жареный (Кіші)", name_ru: "Донер жареный (Маленький)", price: 1200, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Батон донер (Үлкен)", name_ru: "Батон донер (Большой)", price: 1900, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Батон донер (Кіші)", name_ru: "Батон донер (Маленький)", price: 900, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+      { cat: "doner", name_kk: "Твистер", name_ru: "Твистер", price: 1800, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+
+      // Бургерлер мен қанаттар[cite: 3]
+      { cat: "burger", name_kk: "Бургер говяжий", name_ru: "Бургер говяжий", price: 1800, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80" },
+      { cat: "burger", name_kk: "Бургер со стрипсами", name_ru: "Бургер со стрипсами", price: 1600, img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&q=80" },
+      { cat: "burger", name_kk: "Острые крылышки (10 шт)", name_ru: "Острые крылышки (10 шт)", price: 1950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
+      { cat: "burger", name_kk: "Острые крылышки (20 шт)", name_ru: "Острые крылышки (20 шт)", price: 3950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
+      { cat: "burger", name_kk: "Острые крылышки (30 шт)", name_ru: "Острые крылышки (30 шт)", price: 5950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
+      { cat: "burger", name_kk: "Острые крылышки (40 шт)", name_ru: "Острые крылышки (40 шт)", price: 7950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
+
+      // Снектер[cite: 3]
+      { cat: "snack", name_kk: "Наггетсы (10 шт)", name_ru: "Наггетсы (10 шт)", price: 1800, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=80" },
+      { cat: "snack", name_kk: "Жареный судак (0.5 кг)", name_ru: "Жареный судак (0.5 кг)", price: 3500, img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&q=80" },
+      { cat: "snack", name_kk: "Фри", name_ru: "Фри", price: 800, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=80" },
+      { cat: "snack", name_kk: "Фри с сосиской", name_ru: "Фри с сосиской", price: 1200, img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=80" },
+      { cat: "snack", name_kk: "Френч дог", name_ru: "Френч дог", price: 1400, img: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=500&q=80" },
+
+      // Пицца[cite: 3]
+      { cat: "pizza", name_kk: "Пицца Пепперони", name_ru: "Пицца Пепперони", price: 2500, img: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&q=80" },
+      { cat: "pizza", name_kk: "Пицца Куриный", name_ru: "Пицца Куриный", price: 2500, img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" },
+      { cat: "pizza", name_kk: "Пицца Маргарита", name_ru: "Пицца Маргарита", price: 2300, img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80" },
+      { cat: "pizza", name_kk: "Пицца 4 сезона", name_ru: "Пицца 4 сезона", price: 2800, img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=80" },
+
+      // Ыстық тағамдар мен рамен[cite: 4]
+      { cat: "hot", name_kk: "Английский завтрак", name_ru: "Английский завтрак", price: 1800, img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&q=80" },
+      { cat: "hot", name_kk: "Том ям", name_ru: "Том ям", price: 3900, img: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=500&q=80" },
+      { cat: "hot", name_kk: "Классический рамен", name_ru: "Классический рамен", price: 1700, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&q=80" },
+      { cat: "hot", name_kk: "Сырный рамен", name_ru: "Сырный рамен", price: 2200, img: "https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=500&q=80" },
+
+      // Сусындар мен коктейльдер
+      { cat: "drinks", name_kk: "Молочный коктейль", name_ru: "Молочный коктейль", price: 1200, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&q=80" },
+      { cat: "drinks", name_kk: "Клубничный коктейль", name_ru: "Клубничный коктейль", price: 1200, img: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&q=80" },
+      { cat: "drinks", name_kk: "Кофе капучино", name_ru: "Кофе капучино", price: 1000, img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" },
+      { cat: "drinks", name_kk: "Кофе латте", name_ru: "Кофе латте", price: 1000, img: "https://images.unsplash.com/photo-1561047029-3000c68339ca?w=500&q=80" },
+      { cat: "drinks", name_kk: "Айс латте", name_ru: "Айс латте", price: 1200, img: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500&q=80" },
+      { cat: "drinks", name_kk: "Чай 3в1", name_ru: "Чай 3в1", price: 300, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&q=80" },
+      { cat: "drinks", name_kk: "Кофе 3в1", name_ru: "Кофе 3в1", price: 300, img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80" },
+      { cat: "drinks", name_kk: "Кока кола 1л", name_ru: "Кока кола 1л", price: 850, img: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=500&q=80" },
+      { cat: "drinks", name_kk: "Кока Кола 0.5 л", name_ru: "Кока Кола 0.5 л", price: 600, img: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=80" },
+      { cat: "drinks", name_kk: "Фанта", name_ru: "Фанта", price: 850, img: "https://images.unsplash.com/photo-1624552184280-9e9632bbeee9?w=500&q=80" },
+      { cat: "drinks", name_kk: "Спрайт", name_ru: "Спрайт", price: 850, img: "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=500&q=80" },
+      { cat: "drinks", name_kk: "Пиала", name_ru: "Пиала", price: 850, img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&q=80" },
+      { cat: "drinks", name_kk: "Фьюс ти", name_ru: "Фьюс ти", price: 850, img: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80" },
+      { cat: "drinks", name_kk: "Ава лимонад 1л", name_ru: "Ава лимонад 1л", price: 850, img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&q=80" },
+      { cat: "drinks", name_kk: "Ава апельсин", name_ru: "Ава апельсин", price: 850, img: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&q=80" }
+    ];
+
+    const categoryNames = {
+      kk: { all: "Барлығы", doner: "Донер", burger: "Бургер/Крылышки", snack: "Снеки", pizza: "Пицца", hot: "Ыстық тағамдар", drinks: "Сусындар" },
+      ru: { all: "Все", doner: "Донер", burger: "Бургеры/Крылышки", snack: "Снеки", pizza: "Пицца", hot: "Горячее", drinks: "Напитки" }
+    };
+
+    let cart = [];
+    let activeCat = "all";
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'kk' ? 'ru' : 'kk';
+      document.getElementById('lang-label').textContent = currentLang === 'kk' ? 'RU' : 'KK';
+      
+      document.getElementById('delivery-text').textContent = translations[currentLang].delivery;
+      document.getElementById('cart-title').textContent = translations[currentLang].cartTitle;
+      document.getElementById('total-text').textContent = translations[currentLang].total;
+      document.getElementById('order-btn-text').textContent = translations[currentLang].orderBtn;
+
+      renderCategories();
+      renderMenu();
+      renderCart();
+    }
+
+    function renderCategories() {
+      const catNav = document.getElementById('categories');
+      catNav.innerHTML = '';
+      const cats = categoryNames[currentLang];
+
+      Object.keys(cats).forEach(key => {
+        const btn = document.createElement('button');
+        btn.className = `cat-btn ${activeCat === key ? 'active' : ''}`;
+        btn.textContent = cats[key];
+        btn.onclick = () => {
+          activeCat = key;
+          renderCategories();
+          renderMenu();
+        };
+        catNav.appendChild(btn);
+      });
+    }
+
+    function renderMenu() {
+      const menuGrid = document.getElementById('menu-grid');
+      menuGrid.innerHTML = '';
+
+      const filtered = activeCat === 'all' 
+        ? menuData 
+        : menuData.filter(i => i.cat === activeCat);
+
+      filtered.forEach((item) => {
+        const name = item[`name_${currentLang}`];
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${item.img}" alt="${name}">
+          <div class="card-content">
+            <div class="card-title">${name}</div>
+            <div class="card-bottom">
+              <div class="card-price">${item.price} ₸</div>
+              <button class="add-btn" onclick="addToCart('${encodeURIComponent(name)}')">${translations[currentLang].add}</button>
+            </div>
+          </div>
+        `;
+        menuGrid.appendChild(card);
+      });
+    }
+
+    function addToCart(encodedName) {
+      const name = decodeURIComponent(encodedName);
+      const item = menuData.find(i => i.name_kk === name || i.name_ru === name);
+      const cartItem = cart.find(c => c.name === name);
+
+      if (cartItem) {
+        cartItem.qty++;
+      } else {
+        cart.push({ name, price: item.price, qty: 1 });
+      }
+
+      updateBadge();
+    }
+
+    function updateBadge() {
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cart-badge').textContent = totalQty;
+    }
+
+    function openCart() {
+      renderCart();
+      document.getElementById('cart-modal').style.display = 'flex';
+    }
+
+    function closeCart() {
+      document.getElementById('cart-modal').style.display = 'none';
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart-items');
+      container.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((c, index) => {
+        const itemTotal = c.price * c.qty;
+        total += itemTotal;
+
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `
+          <div>
+            <div><strong>${c.name}</strong></div>
+            <small>${c.price} ₸ x ${c.qty} = ${itemTotal} ₸</small>
+          </div>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+            <span>${c.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      document.getElementById('total-amount').textContent = `${total} ₸`;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateBadge();
+      renderCart();
+    }
+
+    function sendOrder() {
+      if (cart.length === 0) {
+        alert(translations[currentLang].emptyCart);
+        return;
+      }
+
+      let text = currentLang === 'kk' 
+        ? "Саламатсыз ба! Менің тапсырысым:\n\n" 
+        : "Здравствуйте! Мой заказ:\n\n";
+
+      let total = 0;
+
+      cart.forEach(c => {
+        const itemTotal = c.price * c.qty;
+        total += itemTotal;
+        text += `- ${c.name} x${c.qty} = ${itemTotal} ₸\n`;
+      });
+
+      text += `\n${translations[currentLang].total} ${total} ₸\n`;
+      text += currentLang === 'kk' ? "Жеткізу мекенжайы: Қарауыл ауылы, Ералы көшесі 22 Б" : "Адрес доставки: с. Караул, ул. Ералы 22 Б";
+
+      const phone = "77002302331";
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+
+    renderCategories();
+    renderMenu();
+  </script>
+</body>
+</html>
