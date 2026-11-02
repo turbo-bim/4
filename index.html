@@ -376,23 +376,26 @@
       }
     };
 
-    const menuData = [
-      // Донерлер[cite: 3]
-      { cat: "doner", name_kk: "Донер классический (Үлкен)", name_ru: "Донер классический (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер классический (Кіші)", name_ru: "Донер классический (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер сырный (Үлкен)", name_ru: "Донер сырный (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер сырный (Кіші)", name_ru: "Донер сырный (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер фирменный (Үлкен)", name_ru: "Донер фирменный (Большой)", price: 1600, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер фирменный (Кіші)", name_ru: "Донер фирменный (Маленький)", price: 1000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер говяжий (Үлкен)", name_ru: "Донер говяжий (Большой)", price: 2000, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер говяжий (Кіші)", name_ru: "Донер говяжий (Маленький)", price: 1200, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер жареный (Үлкен)", name_ru: "Донер жареный (Большой)", price: 1800, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Донер жареный (Кіші)", name_ru: "Донер жареный (Маленький)", price: 1200, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Батон донер (Үлкен)", name_ru: "Батон донер (Большой)", price: 1900, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Батон донер (Кіші)", name_ru: "Батон донер (Маленький)", price: 900, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
-      { cat: "doner", name_kk: "Твистер", name_ru: "Твистер", price: 1800, img: "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=500&q=80" },
+    // Нағыз донер/шаурма суретінің URL сілтемесі
+    const donerImg = "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=500&q=80";
 
-      // Бургерлер мен қанаттар[cite: 3]
+    const menuData = [
+      // Донерлер (суреттері донерге ауыстырылды)
+      { cat: "doner", name_kk: "Донер классический (Үлкен)", name_ru: "Донер классический (Большой)", price: 1600, img: donerImg },
+      { cat: "doner", name_kk: "Донер классический (Кіші)", name_ru: "Донер классический (Маленький)", price: 1000, img: donerImg },
+      { cat: "doner", name_kk: "Донер сырный (Үлкен)", name_ru: "Донер сырный (Большой)", price: 1600, img: donerImg },
+      { cat: "doner", name_kk: "Донер сырный (Кіші)", name_ru: "Донер сырный (Маленький)", price: 1000, img: donerImg },
+      { cat: "doner", name_kk: "Донер фирменный (Үлкен)", name_ru: "Донер фирменный (Большой)", price: 1600, img: donerImg },
+      { cat: "doner", name_kk: "Донер фирменный (Кіші)", name_ru: "Донер фирменный (Маленький)", price: 1000, img: donerImg },
+      { cat: "doner", name_kk: "Донер говяжий (Үлкен)", name_ru: "Донер говяжий (Большой)", price: 2000, img: donerImg },
+      { cat: "doner", name_kk: "Донер говяжий (Кіші)", name_ru: "Донер говяжий (Маленький)", price: 1200, img: donerImg },
+      { cat: "doner", name_kk: "Донер жареный (Үлкен)", name_ru: "Донер жареный (Большой)", price: 1800, img: donerImg },
+      { cat: "doner", name_kk: "Донер жареный (Кіші)", name_ru: "Донер жареный (Маленький)", price: 1200, img: donerImg },
+      { cat: "doner", name_kk: "Батон донер (Үлкен)", name_ru: "Батон донер (Большой)", price: 1900, img: donerImg },
+      { cat: "doner", name_kk: "Батон донер (Кіші)", name_ru: "Батон донер (Маленький)", price: 900, img: donerImg },
+      { cat: "doner", name_kk: "Твистер", name_ru: "Твистер", price: 1800, img: donerImg },
+
+      // Бургерлер мен қанаттар
       { cat: "burger", name_kk: "Бургер говяжий", name_ru: "Бургер говяжий", price: 1800, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80" },
       { cat: "burger", name_kk: "Бургер со стрипсами", name_ru: "Бургер со стрипсами", price: 1600, img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&q=80" },
       { cat: "burger", name_kk: "Острые крылышки (10 шт)", name_ru: "Острые крылышки (10 шт)", price: 1950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
@@ -400,20 +403,20 @@
       { cat: "burger", name_kk: "Острые крылышки (30 шт)", name_ru: "Острые крылышки (30 шт)", price: 5950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
       { cat: "burger", name_kk: "Острые крылышки (40 шт)", name_ru: "Острые крылышки (40 шт)", price: 7950, img: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&q=80" },
 
-      // Снектер[cite: 3]
+      // Снектер
       { cat: "snack", name_kk: "Наггетсы (10 шт)", name_ru: "Наггетсы (10 шт)", price: 1800, img: "https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=80" },
       { cat: "snack", name_kk: "Жареный судак (0.5 кг)", name_ru: "Жареный судак (0.5 кг)", price: 3500, img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=500&q=80" },
       { cat: "snack", name_kk: "Фри", name_ru: "Фри", price: 800, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=80" },
       { cat: "snack", name_kk: "Фри с сосиской", name_ru: "Фри с сосиской", price: 1200, img: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=80" },
       { cat: "snack", name_kk: "Френч дог", name_ru: "Френч дог", price: 1400, img: "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?w=500&q=80" },
 
-      // Пицца[cite: 3]
+      // Пицца
       { cat: "pizza", name_kk: "Пицца Пепперони", name_ru: "Пицца Пепперони", price: 2500, img: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&q=80" },
       { cat: "pizza", name_kk: "Пицца Куриный", name_ru: "Пицца Куриный", price: 2500, img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" },
       { cat: "pizza", name_kk: "Пицца Маргарита", name_ru: "Пицца Маргарита", price: 2300, img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80" },
       { cat: "pizza", name_kk: "Пицца 4 сезона", name_ru: "Пицца 4 сезона", price: 2800, img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=80" },
 
-      // Ыстық тағамдар мен рамен[cite: 4]
+      // Ыстық тағамдар мен рамен
       { cat: "hot", name_kk: "Английский завтрак", name_ru: "Английский завтрак", price: 1800, img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&q=80" },
       { cat: "hot", name_kk: "Том ям", name_ru: "Том ям", price: 3900, img: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=500&q=80" },
       { cat: "hot", name_kk: "Классический рамен", name_ru: "Классический рамен", price: 1700, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&q=80" },
@@ -449,153 +452,4 @@
       currentLang = currentLang === 'kk' ? 'ru' : 'kk';
       document.getElementById('lang-label').textContent = currentLang === 'kk' ? 'RU' : 'KK';
       
-      document.getElementById('delivery-text').textContent = translations[currentLang].delivery;
-      document.getElementById('cart-title').textContent = translations[currentLang].cartTitle;
-      document.getElementById('total-text').textContent = translations[currentLang].total;
-      document.getElementById('order-btn-text').textContent = translations[currentLang].orderBtn;
-
-      renderCategories();
-      renderMenu();
-      renderCart();
-    }
-
-    function renderCategories() {
-      const catNav = document.getElementById('categories');
-      catNav.innerHTML = '';
-      const cats = categoryNames[currentLang];
-
-      Object.keys(cats).forEach(key => {
-        const btn = document.createElement('button');
-        btn.className = `cat-btn ${activeCat === key ? 'active' : ''}`;
-        btn.textContent = cats[key];
-        btn.onclick = () => {
-          activeCat = key;
-          renderCategories();
-          renderMenu();
-        };
-        catNav.appendChild(btn);
-      });
-    }
-
-    function renderMenu() {
-      const menuGrid = document.getElementById('menu-grid');
-      menuGrid.innerHTML = '';
-
-      const filtered = activeCat === 'all' 
-        ? menuData 
-        : menuData.filter(i => i.cat === activeCat);
-
-      filtered.forEach((item) => {
-        const name = item[`name_${currentLang}`];
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img src="${item.img}" alt="${name}">
-          <div class="card-content">
-            <div class="card-title">${name}</div>
-            <div class="card-bottom">
-              <div class="card-price">${item.price} ₸</div>
-              <button class="add-btn" onclick="addToCart('${encodeURIComponent(name)}')">${translations[currentLang].add}</button>
-            </div>
-          </div>
-        `;
-        menuGrid.appendChild(card);
-      });
-    }
-
-    function addToCart(encodedName) {
-      const name = decodeURIComponent(encodedName);
-      const item = menuData.find(i => i.name_kk === name || i.name_ru === name);
-      const cartItem = cart.find(c => c.name === name);
-
-      if (cartItem) {
-        cartItem.qty++;
-      } else {
-        cart.push({ name, price: item.price, qty: 1 });
-      }
-
-      updateBadge();
-    }
-
-    function updateBadge() {
-      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-      document.getElementById('cart-badge').textContent = totalQty;
-    }
-
-    function openCart() {
-      renderCart();
-      document.getElementById('cart-modal').style.display = 'flex';
-    }
-
-    function closeCart() {
-      document.getElementById('cart-modal').style.display = 'none';
-    }
-
-    function renderCart() {
-      const container = document.getElementById('cart-items');
-      container.innerHTML = '';
-      let total = 0;
-
-      cart.forEach((c, index) => {
-        const itemTotal = c.price * c.qty;
-        total += itemTotal;
-
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
-          <div>
-            <div><strong>${c.name}</strong></div>
-            <small>${c.price} ₸ x ${c.qty} = ${itemTotal} ₸</small>
-          </div>
-          <div class="qty-controls">
-            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-            <span>${c.qty}</span>
-            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-          </div>
-        `;
-        container.appendChild(div);
-      });
-
-      document.getElementById('total-amount').textContent = `${total} ₸`;
-    }
-
-    function changeQty(index, delta) {
-      cart[index].qty += delta;
-      if (cart[index].qty <= 0) {
-        cart.splice(index, 1);
-      }
-      updateBadge();
-      renderCart();
-    }
-
-    function sendOrder() {
-      if (cart.length === 0) {
-        alert(translations[currentLang].emptyCart);
-        return;
-      }
-
-      let text = currentLang === 'kk' 
-        ? "Саламатсыз ба! Менің тапсырысым:\n\n" 
-        : "Здравствуйте! Мой заказ:\n\n";
-
-      let total = 0;
-
-      cart.forEach(c => {
-        const itemTotal = c.price * c.qty;
-        total += itemTotal;
-        text += `- ${c.name} x${c.qty} = ${itemTotal} ₸\n`;
-      });
-
-      text += `\n${translations[currentLang].total} ${total} ₸\n`;
-      text += currentLang === 'kk' ? "Жеткізу мекенжайы: Қарауыл ауылы, Ералы көшесі 22 Б" : "Адрес доставки: с. Караул, ул. Ералы 22 Б";
-
-      const phone = "77002302331";
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
-    }
-
-    renderCategories();
-    renderMenu();
-  </script>
-</body>
-</html>
+      document
